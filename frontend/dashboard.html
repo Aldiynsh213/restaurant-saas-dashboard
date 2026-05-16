@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DYN SH Dashboard</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div id="toast" class="toast" role="status"></div>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span>DYN SH</span>
+        <small>Business SaaS</small>
+      </div>
+      <div id="roleBadge" class="role-badge"></div>
+      <nav id="mainNav" aria-label="Main navigation">
+        <button data-view="summary" class="active" data-i18n="Dashboard">Dashboard</button>
+        <button data-view="menu" data-i18n="Menu">Menu</button>
+        <button data-view="orders" data-i18n="Orders">Orders</button>
+        <button data-view="branches" id="branchBtn">Branch KPI</button>
+        <button data-view="team" id="teamBtn" data-i18n="Team">Team</button>
+        <button data-view="support" id="supportBtn" data-i18n="Customer Service">Customer Service</button>
+        <button id="salesWebBtn" type="button" data-i18n="Web Penjualan">Web Penjualan</button>
+        <button id="logoutBtn" class="danger-button" data-i18n="Logout">Logout</button>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">DYN SH Workspace</p>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="pageSubtitle" class="page-subtitle">Ringkasan operasional bisnis.</p>
+        </div>
+        <div id="welcomeText" class="user-pill"></div>
+      </header>
+
+      <section id="cards" class="cards"></section>
+      <section id="actionSection" class="panel hidden"></section>
+      <section id="chartSection" class="panel"></section>
+      <section id="tableSection" class="panel"></section>
+    </main>
+  </div>
+
+  <script src="./js/ui.js"></script>
+  <script src="./js/api.js"></script>
+  <script src="./js/dashboard.js"></script>
+</body>
+</html>

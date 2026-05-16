@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DYN SH Account Access</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body class="auth-page">
+  <div id="loginLoading" class="page-loader hidden" aria-live="polite" aria-label="Memuat aplikasi">
+    <div class="loader-card">
+      <div class="loader-spinner"></div>
+      <strong id="loginLoadingTitle">Masuk berhasil</strong>
+      <span id="loginLoadingText">Menyiapkan halaman akun...</span>
+    </div>
+  </div>
+
+  <main class="auth-shell" aria-label="Akses akun DYN SH">
+    <section class="brand-panel" id="brandPanel">
+      <div class="brand-mark">DYN SH</div>
+      <h1 id="brandTitle">Satu sistem untuk outlet dan penjualan online.</h1>
+      <p id="brandText">Masuk sebagai owner atau staff untuk mengelola operasional. Customer dapat mendaftar untuk melakukan pemesanan.</p>
+      <ul class="auth-benefits" id="brandBenefits">
+        <li>Akses staff dan customer terpisah</li>
+        <li>Order online langsung masuk dashboard owner</li>
+        <li>Kontrol menu, cabang, status pesanan, dan akun bisnis</li>
+      </ul>
+      <a class="public-link" href="./sales.html" data-i18n="Buka web penjualan">Buka web penjualan</a>
+    </section>
+
+    <section class="auth-card">
+      <div class="auth-tabs" role="tablist" aria-label="Pilihan akses akun">
+        <button type="button" id="loginTab" class="active" data-auth-tab="login" data-i18n="Masuk">Masuk</button>
+        <button type="button" id="registerTab" data-auth-tab="register" data-i18n="Daftar Customer">Daftar Customer</button>
+      </div>
+
+      <div class="auth-header" id="loginHeader">
+        <h2 data-i18n="Masuk ke akun">Masuk ke akun</h2>
+        <p data-i18n="Gunakan username dan password akun yang sudah terdaftar.">Gunakan username dan password akun yang sudah terdaftar.</p>
+      </div>
+
+      <form id="loginForm" autocomplete="off" novalidate>
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="login_user_identifier"
+          placeholder="Masukkan username"
+          autocomplete="new-password"
+          autocapitalize="none"
+          spellcheck="false"
+          data-lpignore="true"
+          data-form-type="other"
+          required
+        />
+
+        <label for="password">Password</label>
+        <div class="password-field">
+          <input
+            type="password"
+            id="password"
+            name="login_secret_key"
+            placeholder="Masukkan password"
+            autocomplete="new-password"
+            data-lpignore="true"
+            data-form-type="other"
+            required
+          />
+          <button type="button" id="togglePassword" aria-label="Tampilkan password">Show</button>
+        </div>
+
+        <button type="submit" class="primary-button" id="loginButton" data-i18n="Masuk">Masuk</button>
+      </form>
+
+      <div class="auth-header hidden" id="registerHeader">
+        <h2>Daftar akun customer</h2>
+        <p>Akun ini hanya untuk melakukan pemesanan di web penjualan.</p>
+      </div>
+
+      <form id="registerForm" class="hidden" autocomplete="off" novalidate>
+        <label for="fullName">Nama Lengkap</label>
+        <input id="fullName" name="full_name" type="text" placeholder="Nama lengkap" autocomplete="name" required />
+
+        <label for="registerUsername">Username</label>
+        <input id="registerUsername" name="username" type="text" placeholder="Masukkan username" autocomplete="off" autocapitalize="none" spellcheck="false" required />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="nama@email.com" autocomplete="email" required />
+
+        <label for="phone">Nomor HP</label>
+        <input id="phone" name="phone" type="tel" placeholder="08xxxxxxxxxx" autocomplete="tel" required />
+
+        <label for="address">Alamat</label>
+        <input id="address" name="address" type="text" placeholder="Alamat pengiriman utama" autocomplete="street-address" />
+
+        <label for="registerPassword">Password</label>
+        <div class="password-field">
+          <input id="registerPassword" name="password" type="password" placeholder="Minimal 10 karakter, huruf besar, kecil, dan angka" autocomplete="new-password" required />
+          <button type="button" id="toggleRegisterPassword" aria-label="Tampilkan password pendaftaran">Show</button>
+        </div>
+
+        <button type="submit" class="primary-button" id="registerButton" data-i18n="Buat Akun Customer">Buat Akun Customer</button>
+      </form>
+
+      <div id="authMessage" class="form-message" role="status"></div>
+    </section>
+  </main>
+
+  <script src="./js/ui.js"></script>
+  <script src="./js/api.js"></script>
+  <script src="./js/auth.js"></script>
+</body>
+</html>

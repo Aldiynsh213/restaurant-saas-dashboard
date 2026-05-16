@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DYN SH Web Penjualan</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body class="sales-page">
+  <div id="toast" class="toast" role="status"></div>
+  <div id="salesLoading" class="page-loader hidden" aria-live="polite">
+    <div class="loader-card">
+      <div class="loader-spinner"></div>
+      <strong>Memuat web penjualan</strong>
+      <span>Menyiapkan katalog dan keranjang...</span>
+    </div>
+  </div>
+
+  <header class="sales-header sales-hero">
+    <div class="sales-hero-copy">
+      <a class="brand-mark" href="./sales.html">DYN SH</a>
+      <p class="eyebrow">Online Ordering</p>
+      <h1 data-i18n="Pesan makanan favorit dari DYN SH.">Pesan makanan favorit dari DYN SH.</h1>
+      <p>Menu tersusun rapi, checkout cepat, dan pesanan langsung masuk ke dashboard outlet.</p>
+      <div class="hero-stats" aria-label="Ringkasan katalog">
+        <div><strong id="salesMenuCount">0</strong><span>Menu aktif</span></div>
+        <div><strong id="salesCategoryCount">0</strong><span>Kategori</span></div>
+        <div><strong id="salesBranchCount">0</strong><span>Outlet</span></div>
+      </div>
+    </div>
+    <div class="sales-header-actions glass-card">
+      <div id="salesUserInfo" class="user-pill"></div>
+      <a id="dashboardLink" class="text-button hidden" href="./dashboard.html">Dashboard Owner</a>
+      <a id="authLink" class="primary-button auth-link" href="./index.html">Masuk / Daftar</a>
+      <button id="salesLogoutBtn" class="text-button hidden" type="button">Logout</button>
+    </div>
+  </header>
+
+  <main class="sales-layout">
+    <section class="catalog-section">
+      <div class="panel-header catalog-toolbar">
+        <div>
+          <p class="eyebrow">Catalog</p>
+          <h2 data-i18n="Menu Penjualan">Menu Penjualan</h2>
+        </div>
+        <div class="catalog-controls">
+          <div class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="menuSearch" type="search" placeholder="Cari menu, kategori, atau deskripsi" autocomplete="off" />
+          </div>
+          <select id="categoryFilter" class="compact-select" aria-label="Filter kategori">
+            <option value="all">Semua kategori</option>
+          </select>
+        </div>
+      </div>
+      <div id="categoryChips" class="category-chips" aria-label="Kategori menu"></div>
+      <div id="catalogGrid" class="catalog-grid"></div>
+    </section>
+
+    <aside class="cart-panel">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Checkout</p>
+          <h2 data-i18n="Keranjang">Keranjang</h2>
+        </div>
+        <button id="clearCartBtn" type="button" class="text-button" data-i18n="Kosongkan">Kosongkan</button>
+      </div>
+
+      <div id="cartList" class="cart-list"></div>
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cartTotal">Rp 0</strong>
+      </div>
+
+      <form id="checkoutForm" class="checkout-form" novalidate>
+        <label for="branchSelect">Outlet</label>
+        <select id="branchSelect" name="branch_id" required></select>
+
+        <label for="fulfillmentMethod">Metode Pesanan</label>
+        <select id="fulfillmentMethod" name="fulfillment_method" required>
+          <option value="pickup">Pickup di outlet</option>
+          <option value="delivery">Delivery</option>
+        </select>
+
+        <label for="paymentMethod">Pembayaran</label>
+        <select id="paymentMethod" name="payment_method" required>
+          <option value="cash">Cash</option>
+          <option value="qris">QRIS</option>
+          <option value="transfer">Transfer</option>
+          <option value="debit">Debit</option>
+        </select>
+
+        <label for="deliveryAddress">Alamat Delivery</label>
+        <input id="deliveryAddress" name="address" type="text" placeholder="Isi saat memilih delivery" />
+
+        <label for="orderNotes">Catatan</label>
+        <input id="orderNotes" name="notes" type="text" placeholder="Contoh: tanpa pedas, ambil jam 18.00" maxlength="500" />
+
+        <button id="checkoutButton" type="submit" class="primary-button" data-i18n="Kirim Pesanan">Kirim Pesanan</button>
+      </form>
+      <div id="salesMessage" class="form-message" role="status"></div>
+    </aside>
+  </main>
+
+  <section id="myOrdersSection" class="my-orders-section hidden">
+    <div class="panel-header">
+      <div>
+        <p class="eyebrow">Customer Account</p>
+        <h2>Riwayat Pesanan Saya</h2>
+      </div>
+      <button id="refreshOrdersBtn" type="button" class="text-button">Refresh</button>
+    </div>
+    <div id="myOrdersList" class="order-cards"></div>
+  </section>
+
+  <script src="./js/ui.js"></script>
+  <script src="./js/api.js"></script>
+  <script src="./js/sales.js"></script>
+</body>
+</html>

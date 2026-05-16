@@ -1,0 +1,12 @@
+services:
+  mongodb:
+    image: mongo:7
+    container_name: dyn_sh_saas_mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - dyn_sh_saas_mongo_data:/data/db
+
+volumes:
+  dyn_sh_saas_mongo_data:

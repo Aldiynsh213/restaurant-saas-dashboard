@@ -1,0 +1,3 @@
+-- Project ini memakai MongoDB, bukan MySQL.
+-- File ini sengaja tidak berisi schema SQL agar tidak terjadi salah konfigurasi database.
+-- Jalankan `cd backend && npm run seed` untuk membuat tenant, cabang pusat, dan akun owner awal.
