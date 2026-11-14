@@ -242,3 +242,12 @@ Contoh:
 ```js
 const whatsappNumber = window.DYN_SH_WHATSAPP || '6282112345678';
 ```
+
+## Dokumentasi tambahan
+
+- [Panduan E2E lokal](docs/e2e-local.md)
+- [Showcase proyek (PDF)](docs/showcase.pdf)
+
+## Lisensi
+
+MIT
